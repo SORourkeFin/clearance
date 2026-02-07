@@ -1,95 +1,60 @@
-# clearance
-A hackathon prototype exploring trust-based review dynamics in AI systems.
+# CLEARANCE — hack-scale prototype
 
-# CLEARANCE
+A text-first prototype exploring **trust-based review dynamics**: the system remembers how you behave, updates a “trust” score, and changes what it requires from you over time.
 
-**CLEARANCE** is a minimalist, single-mechanic prototype that explores how systems quietly form opinions about users over time.
-
-Instead of reacting only to individual actions, the system builds a *behavioral profile* based on patterns: how often you clarify, comply, push back, or take shortcuts under pressure. That profile then changes what you’re allowed to do next — faster paths, stricter scrutiny, or irreversible flags.
-
-This is not a chatbot and not a narrative game. The focus is the **invisible system**.
+This was built as a solo hackathon project for the **Supercell Global AI Game Hack** (AI Tech Open Challenge).
 
 ---
 
-## What is the core idea?
+## What it is
 
-Most digital systems today don’t just process requests — they **remember behavior**.
+**CLEARANCE** is a minimalist “approval simulator”:
 
-CLEARANCE turns that into a playable experience:
+- You submit a feature request
+- You choose a response strategy (clarify, comply, automate, push back, shortcut, wait)
+- The system updates a **trust score** and a **risk profile**
+- The next response changes based on that history (fast-track vs stricter review)
 
-- You submit changes into a system
-- Each decision subtly shifts trust and risk tolerance
-- The system responds differently over time based on *patterns*, not single choices
-- Some thresholds are irreversible
-
-The tension comes from realizing that the system is no longer reacting — it is *judging*.
+It’s not a chatbot and not a narrative game. The core mechanic is **stateful judgment**: the system becomes more permissive or more demanding depending on your pattern of behavior.
 
 ---
 
-## Why this works as a game
+## Core idea (why it matters)
 
-The game uses **one mechanic only**:
-> *Make a decision → observe how the system changes future constraints*
+Most systems don’t just evaluate *your request* — they evaluate *you* (implicitly or explicitly):
 
-There are:
-- No points
-- No visible meters
-- No explicit explanations
+- Past behavior becomes a proxy for risk
+- “Trust” gates speed, scrutiny, and permissions
+- A single risky move can permanently shift how you’re treated
 
-The “fun” comes from discovery:
-- *Why is this harder now?*
-- *Why was this fast-tracked earlier?*
-- *What did I do to trigger scrutiny?*
+CLEARANCE turns that invisible dynamic into a playable, inspectable prototype.
 
 ---
 
-## Where GenAI fits
+## Demo path (30 seconds)
 
-GenAI is used as the **adaptive system voice**.
+Use the default feature name (or any text) and run:
 
-Instead of fixed responses, the system:
-- References prior behavior
-- Surfaces memory selectively
-- Changes tone and requirements dynamically
+1) **Clarify intent → Submit**  
+   - Trust increases  
+   - Profile shifts toward **cautious**  
+   - System shows **fast-track eligible** (brief rationale only)
 
-AI is not used for content generation or storytelling — it is used to simulate **institutional reasoning**.
+2) **Shortcut (risky) → Submit** (twice)  
+   - Trust drops  
+   - Profile becomes **reckless**  
+   - System requires **rationale + justification** (stricter review)
 
-This makes the experience impossible without AI: the system must *remember, infer, and adapt*.
-
----
-
-## Hackathon scope & constraints
-
-To keep the concept tight, we intentionally froze scope early:
-
-**We do NOT:**
-- Explain system logic to the player
-- Visualize trust or risk meters
-- Optimize balance or difficulty
-- Add multiple mechanics
-
-**We focus on:**
-- One irreversible threshold
-- One evolving profile
-- One visible consequence: changing constraints
+This is the “aha”: the same request gets different treatment because *you* changed.
 
 ---
 
-## Status
+## How to run locally
 
-This is a hackathon-scale prototype built to demonstrate:
-- A novel AI-driven game mechanic
-- Systemic storytelling without exposition
-- How invisible systems can be made legible through play
-
----
-
-## Running the prototype locally
-
-Requirements:
+### Requirements
 - Python 3.9+
 - Streamlit
 
-Install dependencies:
+### Install
 ```bash
-pip install streamlit
+python3 -m pip install streamlit
